@@ -1,0 +1,126 @@
+backend:
+  name: github
+  repo: your-username/your-repo-name # Replace with your GitHub repo (e.g. username/cloudflare-portfolio-blog)
+  branch: main
+  base_url: https://portfolio-blog.pages.dev # Cloudflare Pages URL
+  auth_endpoint: auth
+
+# Enable local backend during local development
+local_backend: true
+
+# Media files stored in public/images
+media_folder: "public/images"
+public_folder: "/images"
+
+# CMS Collections Schema
+collections:
+  # 1. Blog Posts
+  - name: "blog"
+    label: "Blog Posts"
+    label_singular: "Blog Post"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Author", name: "author", widget: "string", default: "Portfolio Author" }
+      - { label: "Category", name: "category", widget: "select", options: ["Engineering", "Architecture", "Cloud & Edge", "Design Systems", "Tutorials"], default: "Engineering" }
+      - { label: "Read Time", name: "readTime", widget: "string", default: "5 min read" }
+      - { label: "Featured Article", name: "featured", widget: "boolean", default: false }
+      - { label: "Tags", name: "tags", widget: "list", default: ["Cloudflare", "Architecture"] }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # 2. Process Guides (Notes from the Field)
+  - name: "guides-field"
+    label: "Process Guides (Notes from the Field)"
+    label_singular: "Field Guide"
+    folder: "src/content/guides-field"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "pubDate", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Deployment Environment", name: "environment", widget: "string", default: "Production Distributed Edge" }
+      - { label: "Difficulty Level", name: "difficulty", widget: "select", options: ["Beginner", "Intermediate", "Advanced"], default: "Intermediate" }
+      - { label: "Key Takeaways", name: "keyTakeaways", widget: "list" }
+      - { label: "Featured Guide", name: "featured", widget: "boolean", default: false }
+      - { label: "Tags", name: "tags", widget: "list", default: ["Field Notes", "Infrastructure", "Troubleshooting"] }
+      - { label: "Field Notes & Protocol (Body)", name: "body", widget: "markdown" }
+
+  # 3. Process Guides (Notes from the Lab)
+  - name: "guides-lab"
+    label: "Process Guides (Notes from the Lab)"
+    label_singular: "Lab Note / Experiment"
+    folder: "src/content/guides-lab"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Experiment / Project Title", name: "title", widget: "string" }
+      - { label: "Date Executed", name: "pubDate", widget: "datetime" }
+      - { label: "Abstract / Description", name: "description", widget: "text" }
+      - { label: "Hypothesis", name: "hypothesis", widget: "string" }
+      - { label: "Findings & Metrics", name: "findings", widget: "string" }
+      - { label: "Reproducibility Level", name: "reproducibility", widget: "select", options: ["High", "Medium", "Experimental"], default: "High" }
+      - { label: "Featured Experiment", name: "featured", widget: "boolean", default: false }
+      - { label: "Tags", name: "tags", widget: "list", default: ["Lab Notes", "Benchmarks", "R&D"] }
+      - { label: "Laboratory Notebook (Body)", name: "body", widget: "markdown" }
+
+  # 4. Featured Projects
+  - name: "projects"
+    label: "Portfolio Projects"
+    label_singular: "Project"
+    folder: "src/content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Project Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Tech Stack", name: "techStack", widget: "list" }
+      - { label: "Live Demo URL", name: "liveUrl", widget: "string", required: false }
+      - { label: "GitHub URL", name: "githubUrl", widget: "string", required: false }
+      - { label: "Key Impact Metric (e.g. 99.99% uptime, 10x throughput)", name: "metric", widget: "string", required: false }
+      - { label: "Display Order", name: "order", widget: "number", default: 1 }
+      - { label: "Featured on Home Bento", name: "featured", widget: "boolean", default: true }
+      - { label: "Project Deep Dive (Body)", name: "body", widget: "markdown" }
+
+  # 5. Resume & Experience Data
+  - name: "resume"
+    label: "Resume & Career History"
+    files:
+      - label: "Resume Data"
+        name: "resume_data"
+        file: "src/data/resume.json"
+        fields:
+          - label: "Full Name"
+            name: "fullName"
+            widget: "string"
+          - label: "Professional Title"
+            name: "title"
+            widget: "string"
+          - label: "Summary"
+            name: "summary"
+            widget: "text"
+          - label: "Location"
+            name: "location"
+            widget: "string"
+          - label: "Email"
+            name: "email"
+            widget: "string"
+          - label: "Work Experience"
+            name: "experience"
+            widget: "list"
+            fields:
+              - { label: "Role / Position", name: "role", widget: "string" }
+              - { label: "Company / Organization", name: "company", widget: "string" }
+              - { label: "Period (e.g. 2023 - Present)", name: "period", widget: "string" }
+              - { label: "Category", name: "category", widget: "select", options: ["Engineering", "Architecture", "Leadership"] }
+              - { label: "Highlights", name: "highlights", widget: "list" }
+          - label: "Skills Matrix"
+            name: "skills"
+            widget: "list"
+            fields:
+              - { label: "Category", name: "category", widget: "string" }
+              - { label: "Skill List", name: "items", widget: "list" }

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="40" fill="url(#bgGrad)" />
+  <rect x="2" y="2" width="156" height="156" rx="38" stroke="url(#glowGrad)" stroke-width="2.5" stroke-opacity="0.6" />
+  
+  <!-- Modern Geometric Avatar Silhouette -->
+  <circle cx="80" cy="62" r="28" fill="#312e81" stroke="#6366f1" stroke-width="2.5" />
+  <path d="M40 134 C40 106 60 98 80 98 C100 98 120 106 120 134" fill="#312e81" stroke="#8b5cf6" stroke-width="2.5" />
+  <circle cx="80" cy="62" r="16" fill="url(#glowGrad)" />
+  <path d="M56 134 C56 114 68 110 80 110 C92 110 104 114 104 134" fill="url(#glowGrad)" opacity="0.8" />
+</svg>

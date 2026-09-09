@@ -1,0 +1,203 @@
+---
+// projects.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout 
+  title="Engineering Projects | Alex Mercer"
+  description="Selected software projects, open source architectures, and distributed systems implementations."
+>
+  <div class="site-container projects-page">
+    <div class="glass-card projects-banner-card">
+      <div class="card-body">
+        <div class="banner-top">
+          <div>
+            <span class="badge-tag">Open Source & Systems</span>
+            <h1 class="banner-title">Featured Engineering Projects</h1>
+          </div>
+          <a href="/admin" class="btn btn-primary btn-sm">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Add Project (CMS)</span>
+          </a>
+        </div>
+        <p class="banner-desc">
+          High-performance distributed gateways, zero-knowledge security vaults, and real-time telemetry systems built for scale.
+        </p>
+      </div>
+    </div>
+
+    <!-- Full Projects Grid -->
+    <div class="full-projects-grid">
+      {sortedProjects.map(async (project) => {
+        const { Content } = await project.render();
+
+        return (
+          <div class="glass-card project-full-card">
+            <div class="card-body">
+              <div class="card-top">
+                <div class="project-tags-row">
+                  {project.data.techStack.map((tech: string) => (
+                    <span class="tech-pill">{tech}</span>
+                  ))}
+                </div>
+                {project.data.metric && (
+                  <span class="metric-highlight">{project.data.metric}</span>
+                )}
+              </div>
+
+              <h2 class="project-heading">{project.data.title}</h2>
+              <p class="project-summary">{project.data.description}</p>
+
+              <div class="project-body-prose">
+                <Content />
+              </div>
+
+              <div class="project-actions-row">
+                {project.data.liveUrl && (
+                  <a href={project.data.liveUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                    <span>Live Demo</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                )}
+                {project.data.githubUrl && (
+                  <a href={project.data.githubUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                    <span>GitHub Code</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .projects-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .projects-banner-card {
+    background: radial-gradient(circle at 85% 15%, rgba(99, 102, 241, 0.15), transparent 60%), var(--glass-bg);
+  }
+
+  .banner-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .banner-title {
+    font-size: 2.2rem;
+    margin-top: 0.5rem;
+  }
+
+  .banner-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+  }
+
+  .full-projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .project-full-card {
+    background: var(--glass-bg);
+  }
+
+  .project-tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tech-pill {
+    font-size: 0.75rem;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-full);
+    color: var(--accent-cyan);
+    font-weight: 500;
+  }
+
+  .metric-highlight {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-emerald);
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+  }
+
+  .project-heading {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-summary {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-body-prose {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    background: var(--bg-subtle);
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .project-body-prose h2, .project-body-prose h3 {
+    font-size: 1.15rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .project-body-prose p {
+    margin-bottom: 0.75rem;
+  }
+
+  .project-body-prose ul {
+    margin-left: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-actions-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+</style>

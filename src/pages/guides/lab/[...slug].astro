@@ -1,0 +1,29 @@
+---
+// guides/lab/[...slug].astro
+import { getCollection } from 'astro:content';
+import PostLayout from '../../../layouts/PostLayout.astro';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides-lab');
+  return guides.map((guide) => ({
+    params: { slug: guide.slug },
+    props: { guide }
+  }));
+}
+
+const { guide } = Astro.props;
+const { Content } = await guide.render();
+---
+
+<PostLayout
+  title={guide.data.title}
+  description={guide.data.description}
+  pubDate={guide.data.pubDate}
+  category={`Lab R&D • ${guide.data.reproducibility} Reproducibility`}
+  tags={guide.data.tags}
+  type="lab"
+  backUrl="/guides/lab"
+  backText="Back to Lab Process Guides"
+>
+  <Content />
+</PostLayout>

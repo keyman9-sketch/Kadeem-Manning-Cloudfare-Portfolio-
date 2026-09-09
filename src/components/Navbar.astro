@@ -1,0 +1,294 @@
+---
+// Navbar.astro
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<header class="navbar-wrapper">
+  <div class="site-container">
+    <nav class="navbar glass-card">
+      <a href="/" class="nav-brand">
+        <div class="brand-logo">
+          <span>AM</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Alex Mercer</span>
+          <span class="brand-sub">Architect & Engineer</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="nav-links">
+        <a href="/" class={`nav-link ${pathname === '/' ? 'active' : ''}`}>Overview</a>
+        <a href="/resume" class={`nav-link ${pathname.startsWith('/resume') ? 'active' : ''}`}>Resume</a>
+        <a href="/blog" class={`nav-link ${pathname.startsWith('/blog') ? 'active' : ''}`}>Blog</a>
+        <a href="/guides/field" class={`nav-link ${pathname.startsWith('/guides/field') ? 'active' : ''}`}>
+          <span class="nav-dot field-dot"></span> Field Notes
+        </a>
+        <a href="/guides/lab" class={`nav-link ${pathname.startsWith('/guides/lab') ? 'active' : ''}`}>
+          <span class="nav-dot lab-dot"></span> Lab Notes
+        </a>
+        <a href="/projects" class={`nav-link ${pathname.startsWith('/projects') ? 'active' : ''}`}>Projects</a>
+      </div>
+
+      <!-- Action Items: CMS Button & Theme Switcher -->
+      <div class="nav-actions">
+        <a href="/admin" class="btn btn-secondary btn-sm cms-badge" title="Open In-Browser CMS">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+          </svg>
+          <span>CMS Admin</span>
+        </a>
+
+        <!-- Theme Switcher Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+          <!-- Sun Icon -->
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon -->
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" class="mobile-toggle-btn" aria-label="Open Navigation">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="mobile-drawer">
+    <div class="drawer-content glass-card">
+      <a href="/" class="drawer-link">Overview</a>
+      <a href="/resume" class="drawer-link">Resume & Experience</a>
+      <a href="/blog" class="drawer-link">Blog & Essays</a>
+      <a href="/guides/field" class="drawer-link">Process Guides (Field Notes)</a>
+      <a href="/guides/lab" class="drawer-link">Process Guides (Lab Notes)</a>
+      <a href="/projects" class="drawer-link">Featured Projects</a>
+      <a href="/admin" class="drawer-link cms-link">CMS Admin Panel</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .navbar-wrapper {
+    position: sticky;
+    top: 1rem;
+    z-index: 50;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-full);
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .brand-logo {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-md);
+    background: var(--gradient-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: -0.02em;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+  }
+
+  .brand-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
+    background: var(--border-subtle);
+  }
+
+  .nav-link.active {
+    color: var(--text-primary);
+    background: var(--bg-subtle);
+    font-weight: 600;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .nav-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .field-dot { background-color: var(--accent-emerald); }
+  .lab-dot { background-color: var(--accent-rose); }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .theme-toggle-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .theme-toggle-btn:hover {
+    background: var(--bg-secondary);
+    border-color: var(--border-hover);
+    transform: rotate(15deg);
+  }
+
+  .sun-icon { display: none; }
+  .moon-icon { display: block; }
+
+  [data-theme="light"] .sun-icon { display: block; }
+  [data-theme="light"] .moon-icon { display: none; }
+
+  .mobile-toggle-btn {
+    display: none;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-md);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .mobile-drawer {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 1rem;
+    right: 1rem;
+    margin-top: 0.5rem;
+    z-index: 60;
+  }
+
+  .mobile-drawer.open {
+    display: block;
+  }
+
+  .drawer-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .drawer-link {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .drawer-link:hover {
+    background: var(--bg-subtle);
+  }
+
+  @media (max-width: 960px) {
+    .nav-links { display: none; }
+    .mobile-toggle-btn { display: flex; }
+    .cms-badge { display: none; }
+  }
+</style>
+
+<script is:inline>
+  // Theme Toggle Persistence Script
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+
+  function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 
+      (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }
+
+  initTheme();
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  }
+
+  if (mobileMenuBtn && mobileDrawer) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('open');
+    });
+  }
+</script>

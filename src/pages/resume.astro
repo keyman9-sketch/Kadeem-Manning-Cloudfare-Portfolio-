@@ -1,0 +1,488 @@
+---
+// resume.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import resumeData from '../data/resume.json';
+---
+
+<BaseLayout 
+  title={`Interactive Resume | ${resumeData.fullName}`}
+  description={`Professional experience, technical architecture leadership, and engineering skills of ${resumeData.fullName}.`}
+>
+  <div class="site-container resume-page">
+    <!-- Resume Header Card -->
+    <div class="glass-card resume-header-card">
+      <div class="card-body">
+        <div class="resume-top-row">
+          <div class="resume-title-block">
+            <span class="badge-tag badge-resume">Curriculum Vitae</span>
+            <h1 class="resume-name">{resumeData.fullName}</h1>
+            <p class="resume-role">{resumeData.title}</p>
+            <p class="resume-loc">📍 {resumeData.location} • ✉️ {resumeData.email}</p>
+          </div>
+
+          <div class="resume-actions-block">
+            <button onclick="window.print()" class="btn btn-secondary btn-sm" title="Print or save as PDF">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+              </svg>
+              <span>Print / Save PDF</span>
+            </button>
+            <a href="/admin" class="btn btn-primary btn-sm">
+              <span>Edit in CMS</span>
+            </a>
+          </div>
+        </div>
+
+        <p class="resume-bio">{resumeData.summary}</p>
+      </div>
+    </div>
+
+    <!-- Interactive Career Timeline with Filter Tabs -->
+    <div class="glass-card timeline-card">
+      <div class="card-body">
+        <div class="timeline-header">
+          <div>
+            <span class="badge-tag">Experience</span>
+            <h2 class="section-heading">Professional Career Timeline</h2>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="filter-tabs" id="resume-filters">
+            <button class="filter-btn active" data-filter="all">All Roles</button>
+            <button class="filter-btn" data-filter="Architecture">Architecture</button>
+            <button class="filter-btn" data-filter="Engineering">Engineering</button>
+          </div>
+        </div>
+
+        <!-- Experience Timeline List -->
+        <div class="timeline-list">
+          {resumeData.experience.map((exp, index) => (
+            <div class="timeline-item" data-category={exp.category}>
+              <div class="timeline-marker">
+                <div class="marker-dot"></div>
+                {index !== resumeData.experience.length - 1 && <div class="marker-line"></div>}
+              </div>
+
+              <div class="timeline-content glass-card">
+                <div class="card-body">
+                  <div class="role-header">
+                    <div>
+                      <h3 class="role-title">{exp.role}</h3>
+                      <h4 class="company-name">{exp.company} • <span class="role-loc">{exp.location}</span></h4>
+                    </div>
+                    <div class="role-meta">
+                      <span class="period-badge">{exp.period}</span>
+                      <span class={`cat-badge cat-${exp.category.toLowerCase()}`}>{exp.category}</span>
+                    </div>
+                  </div>
+
+                  <ul class="highlights-list">
+                    {exp.highlights.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills & Education Grid -->
+    <div class="resume-subgrid">
+      <!-- Technical Skills Matrix -->
+      <div class="glass-card">
+        <div class="card-body">
+          <div class="card-top">
+            <div class="card-icon-badge">🧠</div>
+            <span class="badge-tag">Core Competencies</span>
+          </div>
+          <h3 class="card-title">Technical Skills Matrix</h3>
+          
+          <div class="skills-sections">
+            {resumeData.skills.map((group) => (
+              <div class="skill-group">
+                <h4 class="skill-group-title">{group.category}</h4>
+                <div class="skill-tag-row">
+                  {group.items.map((skill) => (
+                    <span class="skill-tag">{skill}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Education & Certifications -->
+      <div class="glass-card">
+        <div class="card-body">
+          <div class="card-top">
+            <div class="card-icon-badge">🎓</div>
+            <span class="badge-tag">Credentials</span>
+          </div>
+          <h3 class="card-title">Education & Certifications</h3>
+
+          <div class="credentials-box">
+            {resumeData.education.map((edu) => (
+              <div class="edu-item">
+                <h4 class="edu-degree">{edu.degree}</h4>
+                <p class="edu-inst">{edu.institution} ({edu.period})</p>
+              </div>
+            ))}
+
+            <div class="cert-box">
+              <h4 class="cert-heading">Professional Certifications</h4>
+              <ul class="cert-list">
+                {resumeData.certifications.map((cert) => (
+                  <li>✨ {cert}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .resume-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .resume-header-card {
+    background: radial-gradient(circle at 90% 10%, rgba(6, 182, 212, 0.15), transparent 60%), var(--glass-bg);
+  }
+
+  .resume-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .resume-name {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin: 0.5rem 0 0.25rem 0;
+  }
+
+  .resume-role {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    margin-bottom: 0.5rem;
+  }
+
+  .resume-loc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .resume-actions-block {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .resume-bio {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 900px;
+  }
+
+  /* Timeline */
+  .timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .section-heading {
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+  }
+
+  .filter-tabs {
+    display: flex;
+    background: var(--bg-subtle);
+    padding: 0.3rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-subtle);
+    gap: 0.25rem;
+  }
+
+  .filter-btn {
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius-full);
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .filter-btn.active {
+    background: var(--accent-primary);
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+  }
+
+  .timeline-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 1.5rem;
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+  }
+
+  .timeline-item.hidden {
+    display: none;
+  }
+
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20px;
+    flex-shrink: 0;
+  }
+
+  .marker-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    border: 3px solid var(--bg-primary);
+    box-shadow: 0 0 12px var(--accent-cyan);
+    margin-top: 1.5rem;
+    z-index: 2;
+  }
+
+  .marker-line {
+    width: 2px;
+    flex-grow: 1;
+    background: var(--border-subtle);
+    margin-top: 0.5rem;
+  }
+
+  .timeline-content {
+    flex-grow: 1;
+    background: var(--bg-subtle);
+  }
+
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .role-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .company-name {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .role-loc {
+    color: var(--text-muted);
+  }
+
+  .role-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .period-badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg-primary);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .cat-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-full);
+  }
+
+  .cat-architecture {
+    background: rgba(168, 85, 247, 0.15);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.3);
+  }
+
+  .cat-engineering {
+    background: rgba(6, 182, 212, 0.15);
+    color: #67e8f9;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+  }
+
+  .highlights-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .highlights-list li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    position: relative;
+    padding-left: 1.25rem;
+  }
+
+  .highlights-list li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent-cyan);
+  }
+
+  /* Subgrid */
+  .resume-subgrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skills-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  .skill-group-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-tag {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .credentials-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .edu-item {
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 1rem;
+  }
+
+  .edu-degree {
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .edu-inst {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .cert-heading {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .cert-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cert-list li {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 860px) {
+    .resume-subgrid { grid-template-columns: 1fr; }
+    .timeline-item { gap: 0.75rem; }
+  }
+
+  /* Clean Print Styling */
+  @media print {
+    body { background: #ffffff !important; color: #000000 !important; }
+    .ambient-bg, .grid-pattern, .navbar-wrapper, .footer-wrapper, .resume-actions-block, .filter-tabs { display: none !important; }
+    .glass-card { background: transparent !important; border: 1px solid #ddd !important; box-shadow: none !important; }
+    .resume-name { color: #000000 !important; }
+  }
+</style>
+
+<script is:inline>
+  // Filter tabs logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      timelineItems.forEach((item) => {
+        const cat = item.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

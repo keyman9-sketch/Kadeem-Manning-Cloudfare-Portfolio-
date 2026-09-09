@@ -1,0 +1,76 @@
+{
+  "fullName": "Alex Mercer",
+  "title": "Staff Systems Architect & Full-Stack Engineer",
+  "summary": "Full-lifecycle systems engineer and architect specializing in distributed edge computing, high-throughput microservices, and modern web application development. Passionate about resilient systems, performance optimization, and developer tooling.",
+  "location": "San Francisco, CA (or Remote)",
+  "email": "alex.mercer@example.com",
+  "github": "https://github.com",
+  "linkedin": "https://linkedin.com",
+  "status": "Available for Select Advisory & Engineering Roles",
+  "experience": [
+    {
+      "role": "Staff Systems Architect",
+      "company": "Nexus Edge Technologies",
+      "period": "2023 - Present",
+      "category": "Architecture",
+      "location": "San Francisco, CA",
+      "highlights": [
+        "Architected multi-region edge cache and serverless compute layer serving 120M+ daily requests with <25ms p99 latency.",
+        "Engineered automated failover pipelines cutting disaster recovery time from 14 minutes to under 8 seconds.",
+        "Led cross-functional team of 9 engineers across infrastructure, frontend, and core distributed systems."
+      ]
+    },
+    {
+      "role": "Senior Full-Stack Engineer",
+      "company": "Vanguard Cloud Platforms",
+      "period": "2021 - 2023",
+      "category": "Engineering",
+      "location": "Remote",
+      "highlights": [
+        "Designed and implemented high-performance real-time telemetry dashboard using WebSockets and canvas rendering.",
+        "Refactored legacy monolith into modular TypeScript micro-frontends, accelerating release velocity by 65%.",
+        "Pioneered automated testing suite achieving 94% coverage across critical payment and auth flows."
+      ]
+    },
+    {
+      "role": "Infrastructure & Systems Engineer",
+      "company": "Helios Systems",
+      "period": "2019 - 2021",
+      "category": "Engineering",
+      "location": "Austin, TX",
+      "highlights": [
+        "Provisioned and managed Kubernetes clusters across multi-cloud environments (AWS & Cloudflare Edge).",
+        "Built custom CI/CD pipelines reducing developer build wait times from 45 minutes to 6 minutes."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.S. in Computer Science & Distributed Systems",
+      "institution": "University of California, Berkeley",
+      "period": "2015 - 2019"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Core Languages",
+      "items": ["TypeScript", "JavaScript", "Rust", "Go", "Python", "SQL"]
+    },
+    {
+      "category": "Edge & Cloud",
+      "items": ["Cloudflare Workers / Pages", "Cloudflare D1 / KV", "AWS Lambda", "Docker", "Kubernetes", "Terraform"]
+    },
+    {
+      "category": "Frontend & UI",
+      "items": ["Astro", "React / Next.js", "Vanilla Modern CSS", "TailwindCSS", "WebSockets", "Canvas / WebGL"]
+    },
+    {
+      "category": "Data & Systems",
+      "items": ["PostgreSQL", "Redis", "Kafka", "ClickHouse", "GraphQL", "gRPC"]
+    }
+  ],
+  "certifications": [
+    "AWS Certified Solutions Architect - Professional",
+    "Cloudflare Edge Specialist"
+  ]
+}

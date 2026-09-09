@@ -1,0 +1,177 @@
+---
+// Footer.astro
+const year = new Date().getFullYear();
+---
+
+<footer class="footer-wrapper">
+  <div class="site-container">
+    <div class="footer-content glass-card">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span>AM</span>
+          </div>
+          <div class="footer-info">
+            <h3>Alex Mercer</h3>
+            <p>Staff Systems Architect & Distributed Edge Engineer</p>
+          </div>
+        </div>
+
+        <div class="footer-grid-links">
+          <div class="footer-col">
+            <h4>Core Navigation</h4>
+            <ul>
+              <li><a href="/">Overview Hub</a></li>
+              <li><a href="/resume">Interactive Resume</a></li>
+              <li><a href="/projects">Featured Projects</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Publications & Notes</h4>
+            <ul>
+              <li><a href="/blog">Engineering Blog</a></li>
+              <li><a href="/guides/field">Notes from the Field</a></li>
+              <li><a href="/guides/lab">Notes from the Lab</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Management & Edge</h4>
+            <ul>
+              <li><a href="/admin">In-Browser CMS</a></li>
+              <li><span class="cf-badge">⚡ Deployed on Cloudflare Pages</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© {year} Alex Mercer. Designed with Glassmorphism & Astro.</p>
+        <div class="footer-status">
+          <span class="beacon-dot"></span>
+          <span>Edge Network: Global 100% Operational</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-wrapper {
+    margin-top: auto;
+    padding: 3rem 0 2rem 0;
+  }
+
+  .footer-content {
+    padding: 2.5rem;
+    border-radius: var(--radius-xl);
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .footer-brand {
+    display: flex;
+    gap: 1rem;
+    max-width: 320px;
+  }
+
+  .footer-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--gradient-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .footer-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .footer-grid-links {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .footer-col h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+    margin-bottom: 0.85rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-col a {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-col a:hover {
+    color: var(--accent-primary);
+  }
+
+  .cf-badge {
+    font-size: 0.8rem;
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .footer-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 860px) {
+    .footer-top {
+      flex-direction: column;
+    }
+    .footer-grid-links {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+</style>
