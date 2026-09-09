@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: your-username/your-repo-name # Replace with your GitHub repo (e.g. username/cloudflare-portfolio-blog)
+  repo: keyman9-sketch/Kadeem-Manning-Cloudfare-Portfolio-
   branch: main
-  base_url: https://portfolio-blog.pages.dev # Cloudflare Pages URL
+  base_url: https://kadeem-manning-cloudfare-portfolio-.pages.dev
   auth_endpoint: auth
 
 # Enable local backend during local development
