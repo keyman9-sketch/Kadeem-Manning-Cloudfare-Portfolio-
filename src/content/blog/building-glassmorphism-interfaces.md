@@ -2,7 +2,7 @@
 title: "Designing Tactile Glassmorphism in Modern Web UI"
 description: "Mastering translucent backdrop filters, specular gradient highlights, and responsive micro-animations for high-end web aesthetics."
 pubDate: 2026-08-28
-author: "Alex Mercer"
+author: "Kadeem Manning"
 tags: ["CSS", "Design Systems", "Glassmorphism", "UI/UX"]
 featured: false
 readTime: "4 min read"

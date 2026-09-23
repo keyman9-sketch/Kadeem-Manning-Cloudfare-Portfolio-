@@ -2,7 +2,7 @@
 title: "The Shift to Edge-First Architecture in 2026"
 description: "Why distributed edge runtimes and smart routing are replacing traditional centralized cloud monoliths for modern global applications."
 pubDate: 2026-08-15
-author: "Alex Mercer"
+author: "Kadeem Manning"
 tags: ["Edge Computing", "Architecture", "Cloudflare", "Performance"]
 featured: true
 readTime: "6 min read"

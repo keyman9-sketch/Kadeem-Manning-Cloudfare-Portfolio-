@@ -6,7 +6,7 @@ import resumeData from '../data/resume.json';
 
 <BaseLayout 
   title={`Master Resume & Technical CV | ${resumeData.fullName}`}
-  description={`Professional experience, vacuum systems expertise, metrology, and instrumentation leadership of ${resumeData.fullName}.`}
+  description={`High-Vacuum Chamber Operations, Thin-Film Deposition, Helium Leak Detection, and ALCOA+ QA/QC Compliance experience of ${resumeData.fullName}.`}
 >
   <div class="site-container resume-page">
     <!-- Resume Header Card -->
@@ -77,8 +77,9 @@ import resumeData from '../data/resume.json';
           <!-- Category Filter Tabs -->
           <div class="filter-tabs" id="resume-filters">
             <button class="filter-btn active" data-filter="all">All Disciplines</button>
-            <button class="filter-btn" data-filter="Field Metrology & Instrumentation">Metrology</button>
-            <button class="filter-btn" data-filter="Vacuum & Thin-Film R&D">Vacuum Systems</button>
+            <button class="filter-btn" data-filter="High-Vacuum & Thin-Film R&D">High-Vacuum R&D</button>
+            <button class="filter-btn" data-filter="Materials Characterization & QA/QC">QA/QC & Materials</button>
+            <button class="filter-btn" data-filter="Field Metrology & Calibration">Field Metrology</button>
             <button class="filter-btn" data-filter="Controls & Automation">Controls & Automation</button>
           </div>
         </div>
@@ -248,6 +249,7 @@ import resumeData from '../data/resume.json';
     border: 1px solid var(--border-subtle);
     font-size: 0.875rem;
     font-weight: 500;
+    color: var(--text-primary);
   }
 
   .pill-check {
@@ -259,68 +261,64 @@ import resumeData from '../data/resume.json';
   .timeline-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     margin-bottom: 2rem;
     flex-wrap: wrap;
     gap: 1rem;
   }
 
   .section-heading {
-    font-size: 1.6rem;
-    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 0.25rem;
   }
 
   .filter-tabs {
     display: flex;
-    background: var(--bg-subtle);
-    padding: 0.3rem;
-    border-radius: var(--radius-full);
-    border: 1px solid var(--border-subtle);
-    gap: 0.25rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
   }
 
   .filter-btn {
-    padding: 0.45rem 1rem;
+    padding: 0.4rem 0.85rem;
     border-radius: var(--radius-full);
-    border: none;
-    background: transparent;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-subtle);
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     transition: all var(--transition-fast);
   }
 
+  .filter-btn:hover {
+    border-color: var(--accent-cyan);
+    color: var(--text-primary);
+  }
+
   .filter-btn.active {
-    background: var(--accent-primary);
-    color: #ffffff;
-    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+    background: var(--accent-cyan);
+    color: #0b0f19;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
   }
 
   .timeline-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    position: relative;
   }
 
   .timeline-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: 32px 1fr;
     gap: 1.5rem;
-    transition: opacity var(--transition-normal), transform var(--transition-normal);
-  }
-
-  .timeline-item.hidden {
-    display: none;
+    transition: opacity var(--transition-medium);
   }
 
   .timeline-marker {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 20px;
-    flex-shrink: 0;
   }
 
   .marker-dot {
@@ -328,21 +326,19 @@ import resumeData from '../data/resume.json';
     height: 14px;
     border-radius: 50%;
     background: var(--accent-cyan);
-    border: 3px solid var(--bg-primary);
-    box-shadow: 0 0 12px var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan);
     margin-top: 1.5rem;
-    z-index: 2;
   }
 
   .marker-line {
+    flex: 1;
     width: 2px;
-    flex-grow: 1;
     background: var(--border-subtle);
-    margin-top: 0.5rem;
+    margin: 0.5rem 0;
   }
 
   .timeline-content {
-    flex-grow: 1;
+    margin-bottom: 1.5rem;
     background: var(--bg-subtle);
   }
 
@@ -352,11 +348,11 @@ import resumeData from '../data/resume.json';
     align-items: flex-start;
     margin-bottom: 1rem;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
 
   .role-title {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 700;
   }
 
@@ -372,29 +368,27 @@ import resumeData from '../data/resume.json';
 
   .role-meta {
     display: flex;
-    align-items: center;
     gap: 0.5rem;
-    flex-wrap: wrap;
+    align-items: center;
   }
 
   .period-badge {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    background: var(--bg-primary);
-    padding: 0.25rem 0.6rem;
-    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    background: var(--bg-secondary);
     border: 1px solid var(--border-subtle);
+    color: var(--accent-cyan);
+    font-weight: 600;
   }
 
   .cat-badge {
     font-size: 0.75rem;
-    font-weight: 600;
     padding: 0.2rem 0.6rem;
     border-radius: var(--radius-full);
-    background: rgba(6, 182, 212, 0.15);
-    color: #67e8f9;
-    border: 1px solid rgba(6, 182, 212, 0.3);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
   }
 
   .highlights-list {
@@ -405,15 +399,15 @@ import resumeData from '../data/resume.json';
   }
 
   .highlights-list li {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    line-height: 1.55;
     position: relative;
     padding-left: 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
   }
 
   .highlights-list li::before {
-    content: '▹';
+    content: "▹";
     position: absolute;
     left: 0;
     color: var(--accent-cyan);
@@ -422,7 +416,7 @@ import resumeData from '../data/resume.json';
   /* Subgrid */
   .resume-subgrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 3fr 2fr;
     gap: 1.5rem;
   }
 
@@ -430,112 +424,135 @@ import resumeData from '../data/resume.json';
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
   }
 
   .skill-group-title {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--text-muted);
     margin-bottom: 0.5rem;
   }
 
   .skill-tag-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .skill-tag {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.6rem;
     background: var(--bg-subtle);
     border: 1px solid var(--border-subtle);
-    padding: 0.3rem 0.7rem;
-    border-radius: var(--radius-full);
-    font-size: 0.85rem;
-    font-weight: 500;
+    border-radius: 4px;
+    color: var(--text-primary);
   }
 
   .credentials-box {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-top: 1.25rem;
+    margin-top: 1rem;
   }
 
   .edu-item {
-    border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: 1rem;
+    background: var(--bg-subtle);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
   }
 
   .edu-degree {
-    font-size: 1.05rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
   }
 
   .edu-inst {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0.25rem 0;
   }
 
   .edu-desc {
     font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-top: 0.25rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .cert-box {
+    background: var(--bg-subtle);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
   }
 
   .cert-heading {
     font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-muted);
-    margin-bottom: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
   }
 
   .cert-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .cert-list li {
-    font-size: 0.9rem;
+    gap: 0.4rem;
+    font-size: 0.85rem;
     color: var(--text-secondary);
   }
 
-  @media (max-width: 860px) {
-    .target-roles-grid { grid-template-columns: 1fr; }
-    .resume-subgrid { grid-template-columns: 1fr; }
-    .timeline-item { gap: 0.75rem; }
+  @media (max-width: 900px) {
+    .target-roles-grid {
+      grid-template-columns: 1fr;
+    }
+    .resume-subgrid {
+      grid-template-columns: 1fr;
+    }
   }
 
-  /* Clean Print Styling */
+  /* Print Styles */
   @media print {
-    body { background: #ffffff !important; color: #000000 !important; }
-    .ambient-bg, .grid-pattern, .navbar-wrapper, .footer-wrapper, .resume-actions-block, .filter-tabs { display: none !important; }
-    .glass-card { background: transparent !important; border: 1px solid #ddd !important; box-shadow: none !important; }
-    .resume-name { color: #000000 !important; }
+    body {
+      background: white !important;
+      color: black !important;
+    }
+    .resume-header-card, .glass-card, .timeline-content {
+      background: none !important;
+      border: 1px solid #ccc !important;
+      box-shadow: none !important;
+    }
+    .resume-actions-block, #resume-filters {
+      display: none !important;
+    }
+    .period-badge, .cat-badge, .skill-tag, .role-pill-item {
+      border: 1px solid #ccc !important;
+      color: black !important;
+      background: none !important;
+    }
   }
 </style>
 
 <script is:inline>
-  // Filter tabs logic
-  const filterBtns = document.querySelectorAll('.filter-btn');
+  const filterButtons = document.querySelectorAll('.filter-btn');
   const timelineItems = document.querySelectorAll('.timeline-item');
 
-  filterBtns.forEach((btn) => {
+  filterButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
-      filterBtns.forEach((b) => b.classList.remove('active'));
+      filterButtons.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filter = btn.getAttribute('data-filter');
+
       timelineItems.forEach((item) => {
         const cat = item.getAttribute('data-category');
         if (filter === 'all' || cat === filter) {
-          item.classList.remove('hidden');
+          item.style.display = 'grid';
         } else {
-          item.classList.add('hidden');
+          item.style.display = 'none';
         }
       });
     });

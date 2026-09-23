@@ -2,11 +2,12 @@
 // index.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BentoGrid from '../components/BentoGrid.astro';
+import resumeData from '../data/resume.json';
 ---
 
 <BaseLayout 
-  title="Alex Mercer | Staff Systems Architect & Full-Stack Engineer"
-  description="Personal portfolio, engineering blog, and process guides covering distributed edge computing, performance engineering, and systems architecture."
+  title={`${resumeData.fullName} | ${resumeData.title}`}
+  description={resumeData.summary}
 >
   <div class="site-container">
     <BentoGrid />
