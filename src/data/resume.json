@@ -1,76 +1,161 @@
 {
   "fullName": "Kadeem Manning",
-  "title": "Staff Systems Architect & Full-Stack Engineer",
-  "summary": "Full-lifecycle systems engineer and architect specializing in distributed edge computing, high-throughput microservices, and modern web application development. Passionate about resilient systems, performance optimization, and developer tooling.",
-  "location": "San Francisco, CA (or Remote)",
-  "email": "kadeem.manning@example.com",
+  "title": "Engineering & Technical Professional | Metrology, Vacuum Systems & Controls",
+  "summary": "Engineering-trained technical professional with multidisciplinary experience spanning laboratory research, materials testing, vacuum deposition, instrumentation and controls, industrial automation, metrology, sensor systems, environmental field instrumentation, technical documentation, logistics, and project operations. Experienced across high-vacuum cleanrooms, manufacturing facilities, defense contractors, and demanding remote field environments.",
+  "location": "San Antonio, Texas",
+  "email": "sire.key9@gmail.com",
   "github": "https://github.com/keyman9-sketch",
   "linkedin": "https://linkedin.com",
-  "status": "Available for Select Advisory & Engineering Roles",
+  "status": "Available for Technical, R&D & Engineering Roles",
+  "pdfDownloadUrl": "/docs/Kadeem_Manning_Master_Resume.pdf",
   "experience": [
     {
-      "role": "Staff Systems Architect",
-      "company": "Nexus Edge Technologies",
-      "period": "2023 - Present",
-      "category": "Architecture",
-      "location": "San Francisco, CA",
+      "role": "Metrology Technician Trainee → Field Calibration Coordinator",
+      "company": "API Metrology — Contracted to SIMCO",
+      "period": "March 2022 – November 2023",
+      "category": "Field Metrology & Instrumentation",
+      "location": "Nationwide / Lower 48 & Alaska",
       "highlights": [
-        "Architected multi-region edge cache and serverless compute layer serving 120M+ daily requests with <25ms p99 latency.",
-        "Engineered automated failover pipelines cutting disaster recovery time from 14 minutes to under 8 seconds.",
-        "Led cross-functional team of 9 engineers across infrastructure, frontend, and core distributed systems."
+        "Performed calibration, verification, maintenance, configuration, replacement, and troubleshooting of field-deployed sensors and instrumentation across federal, agricultural, and industrial lands.",
+        "Established baseline measurements, adjusted sensor parameters, and verified output against known NIST-traceable standards using loop calibrators, pressure calibrators, and portable DAQs.",
+        "Calibrated diverse sensor systems: Dielectric/electromagnetic (Geonics EM38/31/34), TDR/FDR, inclinometers, gamma-ray attenuation, CRNS, GPR, UAV multispectral/SWIR, and ambient gas monitors (O₃, SO₂, NO₂).",
+        "Managed field inventories of instruments, spare sensors, tools, and calibration references; authored standardized SOPs for new technicians across remote national park rotations."
       ]
     },
     {
-      "role": "Senior Full-Stack Engineer",
-      "company": "Vanguard Cloud Platforms",
-      "period": "2021 - 2023",
-      "category": "Engineering",
-      "location": "Remote",
+      "role": "VAC Lab Research Technician — Vacuum Deposition",
+      "company": "Nanohmics",
+      "period": "2018 – 2022",
+      "category": "Vacuum & Thin-Film R&D",
+      "location": "Austin, Texas",
       "highlights": [
-        "Designed and implemented high-performance real-time telemetry dashboard using WebSockets and canvas rendering.",
-        "Refactored legacy monolith into modular TypeScript micro-frontends, accelerating release velocity by 65%.",
-        "Pioneered automated testing suite achieving 94% coverage across critical payment and auth flows."
+        "Operated and maintained high-vacuum deposition equipment including thermal evaporators, electron-beam evaporators, PECVD chambers, roughing pumps, turbomolecular pumps, and cryopumps.",
+        "Monitored deposition rates and film thicknesses using quartz-crystal microbalances (QCM), thermocouple gauges, and ionization gauges.",
+        "Conducted helium mass spectrometry leak detection (DIN EN 1779 / ISO 20485) and plasma cleaning/ashing of precision optical and sensor substrates in ISO Class 6/7 cleanrooms.",
+        "Maintained laboratory notebooks, tracked substrate chain of custody (CoC), and developed comprehensive equipment maintenance SOPs."
       ]
     },
     {
-      "role": "Infrastructure & Systems Engineer",
-      "company": "Helios Systems",
-      "period": "2019 - 2021",
-      "category": "Engineering",
-      "location": "Austin, TX",
+      "role": "Technical / Instrumentation & Controls Project Specialist",
+      "company": "Peace Corps",
+      "period": "2015 – 2018",
+      "category": "Controls & Automation",
+      "location": "Gaborone, Botswana",
       "highlights": [
-        "Provisioned and managed Kubernetes clusters across multi-cloud environments (AWS & Cloudflare Edge).",
-        "Built custom CI/CD pipelines reducing developer build wait times from 45 minutes to 6 minutes."
+        "Led instrumentation, controls, and automation loop implementation for gray-water facilities and community infrastructure.",
+        "Configured and maintained industrial sensors: inline oil-condition, dielectric/spectroscopic, distributed acoustic sensing (DAS), distributed fiber-optic sensing (DFOS), and multiphase flow sensing.",
+        "Programmed and commissioned SCADA and PLC systems including AutomationDirect DirectLOGIC/Productivity Series (ProductivitySuite) and Siemens SIMATIC S7-1200/S7-1500 (TIA Portal).",
+        "Managed field equipment logistics, technical scheduling, and system commissioning in demanding remote environments."
+      ]
+    },
+    {
+      "role": "Laboratory Technician — Materials Testing",
+      "company": "Principle Materials",
+      "period": "2012 – 2015",
+      "category": "Materials Testing & QA",
+      "location": "Denton, Texas",
+      "highlights": [
+        "Prepared specimens (cutting, grinding, polishing, mounting) and executed routine materials characterization and failure-analysis testing on metals, polymers, and composites.",
+        "Operated universal testing machines (UTMs), jaw crushers, material grinders, muffle furnaces, analytical balances, and precision micrometers.",
+        "Documented test data according to strict QA/QC protocols and project-specific ASTM standards."
+      ]
+    },
+    {
+      "role": "Owner / Operations Manager → Owner-Operator (Class A CDL)",
+      "company": "Commercial Transportation Business",
+      "period": "2018 – Present",
+      "category": "Operations & Logistics",
+      "location": "San Antonio, TX / Nationwide",
+      "highlights": [
+        "Managed commercial transportation operations, vehicle maintenance coordination, compliance, driver coordination, and supply-chain logistics.",
+        "Maintained vehicle records, minimized fleet equipment downtime, and ensured strict DOT/FMCSA regulatory compliance."
       ]
     }
   ],
   "education": [
     {
-      "degree": "B.S. in Computer Science & Distributed Systems",
-      "institution": "University of California, Berkeley",
-      "period": "2015 - 2019"
+      "degree": "Associate of Applied Science in Engineering",
+      "institution": "San Antonio College",
+      "period": "2026",
+      "details": "Engineering education emphasizing applied technical knowledge, mathematics, instrumentation, problem-solving, and engineering fundamentals."
     }
   ],
   "skills": [
     {
-      "category": "Core Languages",
-      "items": ["TypeScript", "JavaScript", "Rust", "Go", "Python", "SQL"]
+      "category": "Vacuum & Deposition Technology",
+      "items": [
+        "Thermal & E-Beam Evaporation",
+        "PECVD Chambers",
+        "Cryopumps & Regeneration",
+        "Turbomolecular Pumps",
+        "Ion Getter Pumps",
+        "Helium Mass Spectrometry Leak Detection",
+        "QCM Rate & Thickness Monitoring",
+        "Thermocouple & Ion Gauges",
+        "Plasma Cleaning & Ashing",
+        "Ultrasonic Solvent Cleaning"
+      ]
     },
     {
-      "category": "Edge & Cloud",
-      "items": ["Cloudflare Workers / Pages", "Cloudflare D1 / KV", "AWS Lambda", "Docker", "Kubernetes", "Terraform"]
+      "category": "Instrumentation, Sensors & Metrology",
+      "items": [
+        "Loop & Pressure Calibrators",
+        "Multimeters & Temperature References",
+        "TDR / FDR Moisture Probes",
+        "Geonics EM38 / EM31 / EM34",
+        "Ground-Penetrating Radar (GPR)",
+        "Cosmic-Ray Neutron Sensors",
+        "FTIR & Gas Spectrometry",
+        "Distributed Fiber-Optic Sensing (DFOS)",
+        "UAV Multispectral & SWIR Payloads",
+        "Four-Point Probe & VNA S-Parameters"
+      ]
     },
     {
-      "category": "Frontend & UI",
-      "items": ["Astro", "React / Next.js", "Vanilla Modern CSS", "TailwindCSS", "WebSockets", "Canvas / WebGL"]
+      "category": "Industrial Automation & Controls",
+      "items": [
+        "SCADA Monitoring",
+        "Siemens SIMATIC S7-1200 / S7-1500",
+        "TIA Portal",
+        "AutomationDirect DirectLOGIC",
+        "Productivity Series (ProductivitySuite)",
+        "Sensor Integration Loops",
+        "Data Acquisition (DAQ) Systems",
+        "ESC 88xx Dataloggers",
+        "Field Commissioning & Wiring"
+      ]
     },
     {
-      "category": "Data & Systems",
-      "items": ["PostgreSQL", "Redis", "Kafka", "ClickHouse", "GraphQL", "gRPC"]
+      "category": "Materials Testing & Cleanroom Operations",
+      "items": [
+        "Universal Testing Machines (UTM)",
+        "Hardness & Thermal Testing",
+        "Muffle Furnaces & Ovens",
+        "Jaw Crushers & Sieve Shakers",
+        "ISO Class 6/7 Cleanroom Protocols",
+        "Substrate Chain of Custody (CoC)",
+        "ALCOA+ Audit-Proof Logbooks",
+        "EPA & OSHA Compliance"
+      ]
+    },
+    {
+      "category": "Programming & Technical Writing",
+      "items": [
+        "Python (Data Analysis & Automation)",
+        "C / C++",
+        "Ruby",
+        "Basic React & TypeScript",
+        "SOP & Runbook Development",
+        "9+ Years Technical Publishing (O'Reilly, Hackernoon, MakeUseOf)"
+      ]
     }
   ],
-  "certifications": [
-    "AWS Certified Solutions Architect - Professional",
-    "Cloudflare Edge Specialist"
+  "targetRoles": [
+    "Research / R&D Laboratory Technician",
+    "Engineering / Process Technician",
+    "Metrology & Calibration Technician",
+    "Instrumentation & Controls Specialist",
+    "Materials Testing / Failure Analysis Technician",
+    "Field Service & Environmental Systems Specialist"
   ]
 }

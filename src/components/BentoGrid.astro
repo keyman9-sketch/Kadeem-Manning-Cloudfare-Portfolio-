@@ -31,7 +31,7 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
       </div>
 
       <h1 class="hero-title">
-        Engineering distributed systems & <span class="gradient-text">edge-first web architectures</span>.
+        Multidisciplinary engineering, <span class="gradient-text">vacuum technology & field metrology</span>.
       </h1>
       <p class="hero-desc">
         {resumeData.summary}
@@ -39,13 +39,20 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
 
       <div class="hero-actions">
         <a href="/resume" class="btn btn-primary">
-          <span>View Interactive Resume</span>
+          <span>Interactive Career Timeline</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
-        <a href="#connect" class="btn btn-secondary">Get in Touch</a>
+        <a href={resumeData.pdfDownloadUrl} download class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download Master Resume (PDF)</span>
+        </a>
       </div>
     </div>
   </div>
@@ -56,23 +63,23 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
     colSpan="col-span-4"
     variant="card-resume"
     icon="💼"
-    badge="Career & Skills"
+    badge="Career & Metrology"
     badgeType="resume"
     title="Resume"
-    subtitle="Interactive timeline of engineering roles, achievements, skills, and downloadable PDF."
+    subtitle="Interactive career timeline, equipment index, target engineering roles, and downloadable PDF."
   >
     <div class="resume-preview-box">
       <div class="resume-stat">
         <span class="stat-num">{resumeData.experience.length}+</span>
-        <span class="stat-label">Key Roles</span>
+        <span class="stat-label">Core Roles</span>
       </div>
       <div class="resume-stat">
-        <span class="stat-num">99.99%</span>
-        <span class="stat-label">SLA Delivered</span>
+        <span class="stat-num">AAS</span>
+        <span class="stat-label">Engineering</span>
       </div>
       <div class="resume-stat">
-        <span class="stat-num">120M+</span>
-        <span class="stat-label">Daily Hits</span>
+        <span class="stat-num">9+ Yrs</span>
+        <span class="stat-label">Tech Writing</span>
       </div>
     </div>
     <div class="card-footer-action">
@@ -86,15 +93,15 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
     colSpan="col-span-6"
     variant="card-field"
     icon="⚡"
-    badge="SRE & Operations"
+    badge="Field Protocols & SRE"
     badgeType="field"
     title="Process Guides (Notes from the Field)"
-    subtitle="Battle-tested deployment protocols, high-availability edge configurations, and outage mitigations."
+    subtitle="Helium mass spectrometry leak testing, cryopump diagnostics, and ground conductivity metrology."
   >
     {latestField && (
       <div class="guide-snippet-box snippet-field">
         <div class="snippet-header">
-          <span class="snippet-tag">Latest Operational SOP</span>
+          <span class="snippet-tag">Featured Field SOP</span>
           <span class="snippet-env">{latestField.data.environment}</span>
         </div>
         <h4 class="snippet-title">{latestField.data.title}</h4>
@@ -107,7 +114,7 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
       </div>
     )}
     <div class="card-footer-action">
-      <span>Browse all field notes & runbooks ({fieldGuides.length}) →</span>
+      <span>Browse all field notes & SOPs ({fieldGuides.length}) →</span>
     </div>
   </BentoCard>
 
@@ -117,16 +124,16 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
     colSpan="col-span-6"
     variant="card-lab"
     icon="🧪"
-    badge="R&D & Experiments"
+    badge="R&D & Metrology"
     badgeType="lab"
     title="Process Guides (Notes from the Lab)"
-    subtitle="Experimental benchmarks, WebAssembly runtime evaluations, and emerging technology tests."
+    subtitle="Thin-film characterization, cleanroom environmental control, and audit-proof ALCOA+ logbooks."
   >
     {latestLab && (
       <div class="guide-snippet-box snippet-lab">
         <div class="snippet-header">
-          <span class="snippet-tag">Active Research Note</span>
-          <span class="snippet-env">Reproducibility: {latestLab.data.reproducibility}</span>
+          <span class="snippet-tag">Standard Lab Protocol</span>
+          <span class="snippet-env">ISO 14644-1 / ALCOA+</span>
         </div>
         <h4 class="snippet-title">{latestLab.data.title}</h4>
         <p class="snippet-desc">{latestLab.data.description}</p>
@@ -138,7 +145,7 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
       </div>
     )}
     <div class="card-footer-action">
-      <span>Inspect research experiments & data ({labGuides.length}) →</span>
+      <span>Inspect cleanroom & characterization SOPs ({labGuides.length}) →</span>
     </div>
   </BentoCard>
 
@@ -148,10 +155,10 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
     colSpan="col-span-7"
     variant="card-blog"
     icon="✍️"
-    badge="Engineering Essays"
+    badge="Technical Writing"
     badgeType="blog"
-    title="Blog"
-    subtitle="Essays and technical write-ups on edge architectures, distributed computing, and modern UI performance."
+    title="Blog & Technical Publications"
+    subtitle="Technical articles, research reviews, and engineering insights published across 9+ years."
   >
     {latestBlog && (
       <div class="blog-featured-snippet">
@@ -164,7 +171,7 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
       </div>
     )}
     <div class="card-footer-action">
-      <span>Read all articles ({blogPosts.length}) →</span>
+      <span>Read technical articles ({blogPosts.length}) →</span>
     </div>
   </BentoCard>
 
@@ -175,18 +182,20 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
         <div class="card-icon-badge">🛠️</div>
         <span class="badge-tag">Core Tooling</span>
       </div>
-      <h3 class="card-title">Technical Mastery</h3>
-      <p class="card-subtitle">Technologies and toolchains in active daily production.</p>
+      <h3 class="card-title">Specialized Toolchains</h3>
+      <p class="card-subtitle">Technologies and equipment in active hands-on operation.</p>
 
       <div class="skills-pill-cloud">
-        <span class="skill-pill">Cloudflare Workers</span>
-        <span class="skill-pill">Astro 5</span>
-        <span class="skill-pill">TypeScript</span>
-        <span class="skill-pill">Rust / WASM</span>
-        <span class="skill-pill">Go</span>
-        <span class="skill-pill">Cloudflare D1 / KV</span>
-        <span class="skill-pill">Docker & K8s</span>
-        <span class="skill-pill">Glassmorphism CSS</span>
+        <span class="skill-pill">Helium Leak Detection</span>
+        <span class="skill-pill">E-Beam Evaporators</span>
+        <span class="skill-pill">Cryopumps</span>
+        <span class="skill-pill">Turbomolecular Pumps</span>
+        <span class="skill-pill">Geonics EM31/34</span>
+        <span class="skill-pill">Siemens S7-1200/1500</span>
+        <span class="skill-pill">SCADA Loops</span>
+        <span class="skill-pill">Ellipsometry</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">ALCOA+ QA/QC</span>
       </div>
     </div>
   </div>
@@ -196,8 +205,8 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
     <div class="card-body">
       <div class="projects-header">
         <div>
-          <span class="badge-tag">Selected Works</span>
-          <h3 class="card-title" style="margin-top: 0.5rem;">Featured Engineering Projects</h3>
+          <span class="badge-tag">Engineering Highlights</span>
+          <h3 class="card-title" style="margin-top: 0.5rem;">Selected Field & Laboratory Projects</h3>
         </div>
         <a href="/projects" class="btn btn-secondary btn-sm">View All Projects →</a>
       </div>
@@ -217,18 +226,6 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
                 <span class="tech-tag">{tech}</span>
               ))}
             </div>
-            <div class="project-links">
-              {project.data.liveUrl && (
-                <a href={project.data.liveUrl} target="_blank" rel="noopener noreferrer" class="link-btn">
-                  Live Demo ↗
-                </a>
-              )}
-              {project.data.githubUrl && (
-                <a href={project.data.githubUrl} target="_blank" rel="noopener noreferrer" class="link-btn">
-                  GitHub Code ↗
-                </a>
-              )}
-            </div>
           </div>
         ))}
       </div>
@@ -239,8 +236,8 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
   <div id="connect" class="glass-card col-span-12 connect-card">
     <div class="card-body connect-body">
       <div class="connect-left">
-        <h3 class="connect-title">Let's build something fast and resilient.</h3>
-        <p class="connect-desc">Open for consulting, architectural reviews, and high-impact engineering leadership.</p>
+        <h3 class="connect-title">Let's connect for engineering and technical collaboration.</h3>
+        <p class="connect-desc">Open for research laboratory, engineering technician, metrology, and instrumentation roles.</p>
       </div>
       <div class="connect-right">
         <a href={`mailto:${resumeData.email}`} class="btn btn-primary">
@@ -248,7 +245,7 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
         </a>
         <div class="social-pills">
           <a href={resumeData.github} target="_blank" rel="noopener noreferrer" class="social-pill">GitHub</a>
-          <a href={resumeData.linkedin} target="_blank" rel="noopener noreferrer" class="social-pill">LinkedIn</a>
+          <a href={resumeData.pdfDownloadUrl} download class="social-pill">Resume (PDF)</a>
           <a href="/admin" class="social-pill cms-pill">Admin CMS</a>
         </div>
       </div>
@@ -336,7 +333,7 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
   }
 
   .stat-num {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 800;
     font-family: var(--font-display);
     color: var(--accent-cyan);
@@ -549,23 +546,6 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
     padding: 0.2rem 0.5rem;
     border-radius: var(--radius-sm);
     color: var(--text-muted);
-  }
-
-  .project-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: auto;
-    padding-top: 0.5rem;
-  }
-
-  .link-btn {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--accent-primary);
-  }
-
-  .link-btn:hover {
-    text-decoration: underline;
   }
 
   /* Connect Card */
