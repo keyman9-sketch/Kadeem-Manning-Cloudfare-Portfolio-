@@ -12,22 +12,25 @@ const pathname = new URL(Astro.request.url).pathname;
         </div>
         <div class="brand-text">
           <span class="brand-name">Kadeem Manning</span>
-          <span class="brand-sub">Architect & Engineer</span>
+          <span class="brand-sub">Laboratory, Metrology & Cleanroom R&D</span>
         </div>
       </a>
 
       <!-- Desktop Nav Links -->
       <div class="nav-links">
         <a href="/" class={`nav-link ${pathname === '/' ? 'active' : ''}`}>Overview</a>
-        <a href="/resume" class={`nav-link ${pathname.startsWith('/resume') ? 'active' : ''}`}>Resume</a>
-        <a href="/blog" class={`nav-link ${pathname.startsWith('/blog') ? 'active' : ''}`}>Blog</a>
+        <a href="/resume" class={`nav-link ${pathname.startsWith('/resume') ? 'active' : ''}`}>Resume & Skills</a>
         <a href="/guides/field" class={`nav-link ${pathname.startsWith('/guides/field') ? 'active' : ''}`}>
-          <span class="nav-dot field-dot"></span> Field Notes
+          <span class="nav-dot field-dot"></span> Field SOPs
         </a>
         <a href="/guides/lab" class={`nav-link ${pathname.startsWith('/guides/lab') ? 'active' : ''}`}>
-          <span class="nav-dot lab-dot"></span> Lab Notes
+          <span class="nav-dot lab-dot"></span> Lab SOPs
+        </a>
+        <a href="/guides/library" class={`nav-link ${pathname.startsWith('/guides/library') ? 'active' : ''}`}>
+          <span class="library-badge">87 PDFs</span> Library
         </a>
         <a href="/projects" class={`nav-link ${pathname.startsWith('/projects') ? 'active' : ''}`}>Projects</a>
+        <a href="/blog" class={`nav-link ${pathname.startsWith('/blog') ? 'active' : ''}`}>Blog</a>
       </div>
 
       <!-- Action Items: CMS Button & Theme Switcher -->
@@ -76,11 +79,12 @@ const pathname = new URL(Astro.request.url).pathname;
   <div id="mobile-drawer" class="mobile-drawer">
     <div class="drawer-content glass-card">
       <a href="/" class="drawer-link">Overview</a>
-      <a href="/resume" class="drawer-link">Resume & Experience</a>
-      <a href="/blog" class="drawer-link">Blog & Essays</a>
-      <a href="/guides/field" class="drawer-link">Process Guides (Field Notes)</a>
-      <a href="/guides/lab" class="drawer-link">Process Guides (Lab Notes)</a>
-      <a href="/projects" class="drawer-link">Featured Projects</a>
+      <a href="/resume" class="drawer-link">Resume & Technical CV</a>
+      <a href="/guides/field" class="drawer-link">Field SOPs (Notes from the Field)</a>
+      <a href="/guides/lab" class="drawer-link">Lab SOPs (Notes from the Lab)</a>
+      <a href="/guides/library" class="drawer-link">Official SOP Library (87 PDFs)</a>
+      <a href="/projects" class="drawer-link">Engineering Projects</a>
+      <a href="/blog" class="drawer-link">Blog & Publications</a>
       <a href="/admin" class="drawer-link cms-link">CMS Admin Panel</a>
     </div>
   </div>
@@ -143,12 +147,12 @@ const pathname = new URL(Astro.request.url).pathname;
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .nav-link {
-    padding: 0.45rem 0.85rem;
-    font-size: 0.875rem;
+    padding: 0.45rem 0.75rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-secondary);
     border-radius: var(--radius-full);
@@ -178,6 +182,15 @@ const pathname = new URL(Astro.request.url).pathname;
   }
   .field-dot { background-color: var(--accent-emerald); }
   .lab-dot { background-color: var(--accent-rose); }
+
+  .library-badge {
+    font-size: 0.65rem;
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--accent-emerald);
+    padding: 0.1rem 0.4rem;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+  }
 
   .nav-actions {
     display: flex;
@@ -256,7 +269,7 @@ const pathname = new URL(Astro.request.url).pathname;
     background: var(--bg-subtle);
   }
 
-  @media (max-width: 960px) {
+  @media (max-width: 1024px) {
     .nav-links { display: none; }
     .mobile-toggle-btn { display: flex; }
     .cms-badge { display: none; }
@@ -264,7 +277,6 @@ const pathname = new URL(Astro.request.url).pathname;
 </style>
 
 <script is:inline>
-  // Theme Toggle Persistence Script
   const themeToggleBtn = document.getElementById('theme-toggle');
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileDrawer = document.getElementById('mobile-drawer');

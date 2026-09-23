@@ -1,12 +1,13 @@
 {
   "fullName": "Kadeem Manning",
-  "title": "Engineering & Technical Professional | Metrology, Vacuum Systems & Controls",
-  "summary": "Engineering-trained technical professional with multidisciplinary experience spanning laboratory research, materials testing, vacuum deposition, instrumentation and controls, industrial automation, metrology, sensor systems, environmental field instrumentation, technical documentation, logistics, and project operations. Experienced across high-vacuum cleanrooms, manufacturing facilities, defense contractors, and demanding remote field environments.",
+  "title": "Laboratory Engineering, Field Metrology & Cleanroom R&D Technician",
+  "summary": "Engineering-trained technical professional with multidisciplinary experience spanning vacuum deposition, thin-film characterization, cleanroom contamination control, field instrumentation, industrial automation, metrology calibration, and QA/QC documentation. Experienced across high-vacuum cleanrooms, defense contractors, manufacturing facilities, and demanding remote field environments.",
   "location": "San Antonio, Texas",
-  "email": "sire.key9@gmail.com",
+  "email": "contact@kadeem-manning.pages.dev",
+  "personalEmail": "sire.key9@gmail.com",
   "github": "https://github.com/keyman9-sketch",
   "linkedin": "https://linkedin.com",
-  "status": "Available for Technical, R&D & Engineering Roles",
+  "status": "Available for Laboratory, Engineering & Metrology Roles",
   "pdfDownloadUrl": "/docs/Kadeem_Manning_Master_Resume.pdf",
   "experience": [
     {
@@ -151,11 +152,10 @@
     }
   ],
   "targetRoles": [
-    "Research / R&D Laboratory Technician",
-    "Engineering / Process Technician",
-    "Metrology & Calibration Technician",
-    "Instrumentation & Controls Specialist",
-    "Materials Testing / Failure Analysis Technician",
-    "Field Service & Environmental Systems Specialist"
+    "Laboratory Engineering Technician",
+    "Field Metrology & Calibration Specialist",
+    "Cleanroom & Vacuum Systems R&D Specialist",
+    "Instrumentation & Industrial Controls Technician",
+    "Materials Characterization & Failure Analysis Technician"
   ]
 }

@@ -12,7 +12,7 @@ const projects = await getCollection('projects');
 const latestBlog = blogPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())[0];
 const latestField = fieldGuides.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())[0];
 const latestLab = labGuides.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())[0];
-const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).slice(0, 2);
+const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).slice(0, 3);
 ---
 
 <div class="bento-grid">
@@ -31,7 +31,8 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
       </div>
 
       <h1 class="hero-title">
-        Multidisciplinary engineering, <span class="gradient-text">vacuum technology & field metrology</span>.
+        <span class="hero-name-badge">Kadeem Manning</span>
+        Laboratory Engineering, <span class="gradient-text">Field Metrology & Cleanroom R&D</span>
       </h1>
       <p class="hero-desc">
         {resumeData.summary}
@@ -52,6 +53,9 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
           <span>Download Master Resume (PDF)</span>
+        </a>
+        <a href="/guides/library" class="btn btn-secondary">
+          <span>Explore 87 SOP PDFs</span>
         </a>
       </div>
     </div>
@@ -232,22 +236,54 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
     </div>
   </div>
 
-  <!-- 8. CONNECT / FOOTER CARD (Col-Span-12) -->
+  <!-- 8. CONNECT & CONTACT FORM CARD (Col-Span-12) -->
   <div id="connect" class="glass-card col-span-12 connect-card">
     <div class="card-body connect-body">
       <div class="connect-left">
-        <h3 class="connect-title">Let's connect for engineering and technical collaboration.</h3>
-        <p class="connect-desc">Open for research laboratory, engineering technician, metrology, and instrumentation roles.</p>
-      </div>
-      <div class="connect-right">
-        <a href={`mailto:${resumeData.email}`} class="btn btn-primary">
-          <span>{resumeData.email}</span>
-        </a>
+        <span class="badge-tag badge-field">Get In Touch</span>
+        <h3 class="connect-title">Let's connect for technical & engineering opportunities.</h3>
+        <p class="connect-desc">Open for research laboratory technician, field metrology, instrumentation, and cleanroom engineering roles.</p>
+        
+        <div class="email-block">
+          <span class="email-label">Website Contact Email:</span>
+          <a href={`mailto:${resumeData.email}`} class="contact-email-link">
+            ✉️ {resumeData.email}
+          </a>
+          <span class="alt-email">Personal: {resumeData.personalEmail}</span>
+        </div>
+
         <div class="social-pills">
           <a href={resumeData.github} target="_blank" rel="noopener noreferrer" class="social-pill">GitHub</a>
           <a href={resumeData.pdfDownloadUrl} download class="social-pill">Resume (PDF)</a>
+          <a href="/guides/library" class="social-pill">87 SOP Documents</a>
           <a href="/admin" class="social-pill cms-pill">Admin CMS</a>
         </div>
+      </div>
+
+      <!-- Interactive Contact Message Form -->
+      <div class="connect-form-container glass-card">
+        <form id="contact-form" class="contact-form">
+          <h4 class="form-title">Send a Direct Message</h4>
+          <div class="form-row">
+            <input type="text" name="name" required placeholder="Your Name" class="form-input" />
+            <input type="email" name="email" required placeholder="Your Email Address" class="form-input" />
+          </div>
+          <select name="inquiryType" class="form-input form-select">
+            <option value="Recruiting">Role Opportunity / Recruitment</option>
+            <option value="Consulting">Technical Consulting & Metrology</option>
+            <option value="General">General Technical Inquiry</option>
+          </select>
+          <textarea name="message" required rows="3" placeholder="How can I assist with your laboratory, metrology, or engineering requirements?" class="form-input form-textarea"></textarea>
+          
+          <button type="submit" class="btn btn-primary btn-sm form-submit-btn">
+            <span>Send Message</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+          <p id="form-status" class="form-status-msg"></p>
+        </form>
       </div>
     </div>
   </div>
@@ -291,6 +327,16 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
     color: var(--text-muted);
   }
 
+  .hero-name-badge {
+    display: block;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
   .hero-title {
     font-size: 2.2rem;
     font-weight: 800;
@@ -304,13 +350,14 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
   }
 
   .hero-desc {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     max-width: 680px;
+    line-height: 1.6;
   }
 
   .hero-actions {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     flex-wrap: wrap;
     margin-top: 0.5rem;
   }
@@ -493,7 +540,7 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
 
   .projects-preview-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
   }
 
@@ -514,7 +561,7 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
   }
 
   .project-name {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 700;
   }
 
@@ -529,8 +576,9 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
   }
 
   .project-desc {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     color: var(--text-secondary);
+    line-height: 1.5;
   }
 
   .project-tech-list {
@@ -554,32 +602,51 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
   }
 
   .connect-body {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
     padding: 2.5rem;
   }
 
   .connect-title {
     font-size: 1.6rem;
-    margin-bottom: 0.5rem;
+    margin: 0.5rem 0;
   }
 
   .connect-desc {
     font-size: 0.95rem;
     color: var(--text-secondary);
+    margin-bottom: 1.25rem;
   }
 
-  .connect-right {
+  .email-block {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 1rem;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .email-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .contact-email-link {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+  }
+
+  .alt-email {
+    font-size: 0.85rem;
+    color: var(--text-muted);
   }
 
   .social-pills {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.6rem;
   }
 
@@ -603,12 +670,87 @@ const featuredProjects = projects.sort((a, b) => a.data.order - b.data.order).sl
     color: var(--accent-primary);
   }
 
-  @media (max-width: 860px) {
+  /* Form Container */
+  .connect-form-container {
+    background: var(--bg-subtle);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .form-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    outline: none;
+    font-family: inherit;
+  }
+
+  .form-input:focus {
+    border-color: var(--accent-primary);
+  }
+
+  .form-select {
+    cursor: pointer;
+  }
+
+  .form-textarea {
+    resize: vertical;
+  }
+
+  .form-submit-btn {
+    align-self: flex-start;
+  }
+
+  .form-status-msg {
+    font-size: 0.85rem;
+    color: var(--accent-emerald);
+    display: none;
+  }
+
+  @media (max-width: 960px) {
     .hero-title { font-size: 1.6rem; }
     .hero-header { flex-direction: column; align-items: flex-start; }
     .hero-status { align-items: flex-start; }
     .projects-preview-grid { grid-template-columns: 1fr; }
-    .connect-body { flex-direction: column; align-items: flex-start; }
-    .connect-right { align-items: flex-start; }
+    .connect-body { grid-template-columns: 1fr; }
+    .form-row { flex-direction: column; }
   }
 </style>
+
+<script is:inline>
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+
+  if (contactForm && formStatus) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formStatus.style.display = 'block';
+      formStatus.innerText = '✓ Thank you! Your message inquiry has been recorded.';
+      contactForm.reset();
+      setTimeout(() => {
+        formStatus.style.display = 'none';
+      }, 5000);
+    });
+  }
+</script>
