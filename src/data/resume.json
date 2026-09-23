@@ -1,82 +1,70 @@
 {
   "fullName": "Kadeem Manning",
-  "title": "High-Vacuum Chamber Technician & QA/QC Compliance Specialist",
-  "summary": "Engineering-trained technical professional specializing in high-vacuum chamber operations, thin-film deposition (thermal/e-beam evaporation, PECVD), cryopump regeneration, helium mass spectrometry leak testing (DIN EN 1779 / ISO 20485), and rigorous ALCOA+ QA/QC laboratory compliance. Experienced across cleanrooms (ISO Class 6/7), defense R&D environments, materials characterization, and precision field metrology.",
-  "location": "San Antonio, Texas",
+  "title": "QA/QC/CLEANROOM Compliance Specialist & High-Vacuum Chamber Technician",
+  "summary": "Engineering-trained technical professional specializing in high-vacuum chamber operations, thin-film deposition (thermal/e-beam evaporation, PECVD), Roughing pump flushing-oil maintenance- filter change, cryopump regeneration-inspection , helium mass spectrometry leak testing (DIN EN 1779 / ISO 20485), and rigorous ALCOA+ QA/QC laboratory compliance. Experienced across cleanrooms (ISO Class 6/7), R&D environments, materials characterization, and precision field metrology.",
+  "location": "Austin, Texas",
   "email": "contact@kadeem-manning.pages.dev",
-  "github": "https://github.com/keyman9-sketch",
-  "linkedin": "https://linkedin.com",
-  "status": "Available for High-Vacuum, Cleanroom & QA/QC Roles",
-  "pdfDownloadUrl": "/docs/Kadeem_Manning_Master_Resume.pdf",
   "experience": [
     {
       "role": "VAC Lab Research Technician — Vacuum Deposition",
       "company": "Nanohmics",
       "period": "2018 – 2022",
       "category": "High-Vacuum & Thin-Film R&D",
-      "location": "Austin, Texas",
       "highlights": [
         "Operated, configured, and maintained high-vacuum deposition systems including thermal evaporators, electron-beam evaporators, PECVD chambers, roughing pumps, turbomolecular pumps, and cryopumps.",
         "Monitored real-time deposition rates and thin-film thicknesses using quartz-crystal microbalances (QCM), thermocouple gauges, and cold-cathode ionization gauges.",
         "Executed helium mass spectrometry leak detection (DIN EN 1779 / ISO 20485) and plasma cleaning/ashing of precision optical and sensor substrates in ISO Class 6/7 cleanrooms.",
         "Maintained laboratory notebooks, tracked substrate chain of custody (CoC), and developed comprehensive equipment maintenance SOPs for vacuum chambers and pumping stacks."
-      ]
+      ],
+      "location": "Austin, Texas"
     },
     {
       "role": "Metrology Technician Trainee → Field Calibration Coordinator",
       "company": "API Metrology — Contracted to SIMCO",
       "period": "March 2022 – November 2023",
       "category": "Field Metrology & Calibration",
-      "location": "Nationwide / Lower 48 & Alaska",
       "highlights": [
         "Performed calibration, verification, maintenance, configuration, replacement, and troubleshooting of field-deployed sensors and instrumentation across federal, agricultural, and industrial lands.",
         "Established baseline measurements, adjusted sensor parameters, and verified output against known NIST-traceable standards using loop calibrators, pressure calibrators, and portable DAQs.",
         "Calibrated diverse sensor systems: Dielectric/electromagnetic (Geonics EM38/31/34), TDR/FDR, inclinometers, gamma-ray attenuation, CRNS, GPR, UAV multispectral/SWIR, and ambient gas monitors (O₃, SO₂, NO₂).",
         "Authored standardized QA/QC calibration SOPs and checklists for new technicians across remote national park and infrastructure rotations."
-      ]
+      ],
+      "location": "Nationwide / Lower 48 & Alaska"
     },
     {
       "role": "Laboratory Technician — Materials Testing & QA/QC",
       "company": "Principle Materials",
       "period": "2012 – 2015",
-      "category": "Materials Characterization & QA/QC",
-      "location": "Denton, Texas",
+      "category": "Engineering",
       "highlights": [
         "Prepared specimens (cutting, grinding, polishing, mounting) and executed routine materials characterization and failure-analysis testing on metals, polymers, and composites.",
         "Operated universal testing machines (UTMs), jaw crushers, material grinders, muffle furnaces, analytical balances, and precision micrometers under strict ASTM test procedures.",
         "Documented test data according to strict ALCOA+ QA/QC data-integrity protocols and client specifications."
-      ]
+      ],
+      "location": "Denton, Texas"
     },
     {
-      "role": "Technical / Instrumentation & Controls Project Specialist",
+      "role": "Technical / Instrumentation - Logistics & Controls Project Specialist",
       "company": "Peace Corps",
       "period": "2015 – 2018",
-      "category": "Controls & Automation",
-      "location": "Gaborone, Botswana",
+      "category": "Leadership",
       "highlights": [
         "Led instrumentation, controls, and automation loop implementation for gray-water facilities and community infrastructure.",
         "Configured and maintained industrial sensors: inline oil-condition, dielectric/spectroscopic, distributed acoustic sensing (DAS), distributed fiber-optic sensing (DFOS), and multiphase flow sensing.",
         "Programmed and commissioned SCADA and PLC systems including AutomationDirect DirectLOGIC/Productivity Series (ProductivitySuite) and Siemens SIMATIC S7-1200/S7-1500 (TIA Portal)."
-      ]
+      ],
+      "location": "Gaborone, Botswana"
     },
     {
       "role": "Owner / Operations Manager → Owner-Operator (Class A CDL)",
-      "company": "Commercial Transportation Business",
+      "company": "Too Fast Recovery -Logistics",
       "period": "2018 – Present",
-      "category": "Operations & Logistics",
-      "location": "San Antonio, TX / Nationwide",
+      "category": "Leadership",
       "highlights": [
         "Managed commercial transportation operations, vehicle maintenance coordination, compliance, driver coordination, and supply-chain logistics.",
         "Maintained vehicle records, minimized fleet equipment downtime, and ensured strict DOT/FMCSA regulatory compliance."
-      ]
-    }
-  ],
-  "education": [
-    {
-      "degree": "Associate of Applied Science in Engineering",
-      "institution": "San Antonio College",
-      "period": "2026",
-      "details": "Engineering education emphasizing applied technical knowledge, mathematics, instrumentation, vacuum physics, and problem-solving fundamentals."
+      ],
+      "location": "San Antonio, TX / Nationwide"
     }
   ],
   "skills": [
@@ -119,8 +107,7 @@
         "Geonics EM38 / EM31 / EM34",
         "Ground-Penetrating Radar (GPR)",
         "Cosmic-Ray Neutron Sensors",
-        "FTIR & Ambient Gas Spectrometry",
-        "UAV Multispectral & SWIR Payloads"
+        "FTIR & Ambient Gas Spectrometry"
       ]
     },
     {
@@ -140,6 +127,7 @@
       "category": "Programming & Technical Writing",
       "items": [
         "Python (Data Analysis & Automation)",
+        "PLC Programmer",
         "C / C++",
         "Ruby",
         "Basic React & TypeScript",
@@ -148,6 +136,18 @@
       ]
     }
   ],
+  "education": [
+    {
+      "degree": "Associate of Applied Science in Engineering",
+      "details": "Engineering education emphasizing applied technical knowledge, mathematics, instrumentation, vacuum physics, and problem-solving fundamentals.",
+      "institution": "San Antonio College",
+      "period": "2026"
+    }
+  ],
+  "github": "https://github.com/keyman9-sketch",
+  "linkedin": "https://linkedin.com",
+  "pdfDownloadUrl": "/docs/Kadeem_Manning_Master_Resume.pdf",
+  "status": "Available for High-Vacuum, Cleanroom & QA/QC Roles",
   "targetRoles": [
     "High-Vacuum Chamber Technician",
     "Cleanroom & Thin-Film R&D Specialist",
